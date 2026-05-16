@@ -70,15 +70,15 @@ Type 'help' to begin.
   }
 
   return (
-    <div className="bg-black text-green-400 h-screen flex flex-col font-mono">
+    <div className="bg-black text-pink-300 h-screen flex flex-col font-mono">
       
       {/* Header */}
-      <div className="border-b border-green-500/20 px-6 py-4 shrink-0">
+      <div className="border-b border-pink-300/20 px-6 py-4 shrink-0">
         <h1 className="text-xl tracking-widest font-bold">
           SORA TERMINAL
         </h1>
 
-        <p className="text-xs text-green-700 mt-1">
+        <p className="text-xs text-pink-300 mt-1">
           interactive cybersecurity portfolio
         </p>
       </div>
@@ -93,13 +93,13 @@ Type 'help' to begin.
             >
               {item.type === 'command' ? (
                 <div>
-                  <span className="text-green-600">
+                  <span className="text-pink-300">
                     guest@sora:~$
                   </span>{' '}
                   {item.text}
                 </div>
               ) : (
-                <div className="text-green-300">
+                <div className="text-pink-300">
                   {item.text}
                 </div>
               )}
@@ -113,10 +113,10 @@ Type 'help' to begin.
       {/* Fixed Input Bottom */}
       <form
         onSubmit={handleSubmit}
-        className="border-t border-green-500/20 p-4 shrink-0"
+        className="border-t border-pink-300/20 p-4 shrink-0"
       >
         <div className="max-w-5xl mx-auto flex items-center">
-          <span className="text-green-600 shrink-0">
+          <span className="text-pink-300 shrink-0">
             guest@sora:~$
           </span>
 
@@ -126,7 +126,7 @@ Type 'help' to begin.
             onChange={(e) => setInput(e.target.value)}
             spellCheck={false}
             autoComplete="off"
-            className="bg-transparent outline-none ml-3 flex-1 text-green-300"
+            className="bg-transparent outline-none ml-3 flex-1 text-pink-300"
           />
         </div>
       </form>
