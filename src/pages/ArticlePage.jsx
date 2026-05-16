@@ -4,7 +4,7 @@ export default function ArticlePage() {
   const { slug } = useParams()
 
   return (
-    <div className="bg-black min-h-screen text-pink-300 p-10 font-mono">
+    <div className="bg-black min-h-screen text-green-400 p-10 font-mono">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">
           {slug}

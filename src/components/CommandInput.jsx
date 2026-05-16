@@ -37,11 +37,11 @@ export default function CommandInput({ commands, onCommand }) {
 
   return (
     <form onSubmit={handleSubmit} className="relative flex items-center">
-      <span className="text-pink-300">guest@sora:~$</span>
+      <span className="text-green-600">guest@sora:~$</span>
 
       <div className="relative flex-1 ml-3">
         {suggestion && input !== suggestion && (
-          <span className="absolute text-pink-300 pointer-events-none">
+          <span className="absolute text-green-900 pointer-events-none">
             {suggestion}
           </span>
         )}
