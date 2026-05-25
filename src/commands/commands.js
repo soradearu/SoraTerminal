@@ -10,6 +10,7 @@ writeups
 contact
 socials
 theme
+siem
 clear
 help
 
@@ -68,6 +69,9 @@ GitHub: github.com/soradearu`,
     output: `Wake up, Sora...
 The matrix has you.`,
   },
+  siem: {
+  output: 'Launching SIEM dashboard...',
+},
 
   sudo: {
     output: `[sudo] password for guest:
