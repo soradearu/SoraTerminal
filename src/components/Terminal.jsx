@@ -45,6 +45,35 @@ const themes = {
     border: 'border-zinc-500/20',
   },
 }
+function BinaryRain() {
+  const columns = Array.from({ length: 20 })
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+
+      {columns.map((_, i) => (
+        <div
+          key={i}
+          className="absolute top-0 text-cyan-300 drop-shadow-[0_0_8px_#22d3ee] text-3xl font-bold animate-rain"
+          // fontSize: `${30 + Math.random() * 50}px` math random size to use
+          style={{
+            left: `${i * 5}%`,
+            animationDuration: `${8 + Math.random() * 10}s`,
+            animationDelay: `${Math.random() * 5}s`,
+            filter: 'blur(0.5px)',
+          }}
+        >
+          {Array.from({ length: 30 }).map((_, j) => (
+            <div key={j} className="leading-[1.2]">
+              {Math.random() > 0.5 ? '1' : '0'}
+            </div>
+          ))}
+        </div>
+      ))}
+
+    </div>
+  )
+}
 
 export default function Terminal() {
   const [history, setHistory] = useState([
@@ -113,6 +142,8 @@ useEffect(() => {
     inputRef.current?.focus()
   }, [])
 
+
+  
   // fake SIEM data
   const siemData = {
     alerts: [
@@ -182,7 +213,14 @@ useEffect(() => {
   }
 
   return (
-    <div className={`bg-black h-screen flex flex-col font-mono relative ${currentTheme.text}`}>
+    
+    <div className={`bg-black h-screen flex flex-col font-mono relative overflow-hidden ${currentTheme.text}`}>
+
+{/* ANIMATED BACKGROUND */}
+  <BinaryRain />
+
+  {/* rest of app */}
+
 
       {/* HEADER */}
       <div className={`border-b px-6 py-4 shrink-0 ${currentTheme.border}`}>
