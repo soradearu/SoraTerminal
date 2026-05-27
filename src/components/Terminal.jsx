@@ -106,42 +106,50 @@ Type 'help' to begin.
 
   // FETCH THREAT FEED
 useEffect(() => {
-  fetch('https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=5')
-    .then((res) => {
-      console.log("STATUS:", res.status)
-      return res.json()
-    })
-    .then((data) => {
-      console.log("RAW API RESPONSE:", data)
 
-      const vulns = data?.vulnerabilities ?? []
+  const fetchThreats = () => {
 
-      console.log("VULNS:", vulns)
+    // random page offset
+    const randomIndex = Math.floor(Math.random() * 2000)
 
-      const normalized = vulns.map((v) => ({
-        id: v?.cve?.id ?? "NO-ID",
-        summary:
-          v?.cve?.descriptions?.find((d) => d.lang === 'en')?.value ??
-          "NO-SUMMARY",
-      }))
+    fetch(
+      `https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=5&startIndex=${randomIndex}`
+    )
+      .then((res) => {
+        console.log('STATUS:', res.status)
+        return res.json()
+      })
+      .then((data) => {
 
-      console.log("NORMALIZED:", normalized)
+        const vulns = data?.vulnerabilities ?? []
 
-      setThreatFeed(normalized)
-    })
-    .catch((err) => {
-      console.log("FETCH FAILED:", err)
-    })
+        const normalized = vulns.map((v) => ({
+          id: v?.cve?.id ?? 'NO-ID',
+
+          summary:
+            v?.cve?.descriptions?.find(
+              (d) => d.lang === 'en'
+            )?.value ?? 'NO-SUMMARY',
+        }))
+
+        console.log('NEW RANDOM FEED:', normalized)
+
+        setThreatFeed(normalized)
+      })
+      .catch((err) => {
+        console.log('FETCH FAILED:', err)
+      })
+  }
+
+  // initial fetch
+  fetchThreats()
+
+  // refresh every 30 sec
+  const interval = setInterval(fetchThreats, 30000)
+
+  return () => clearInterval(interval)
+
 }, [])
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [history])
-
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-
 
   
   // fake SIEM data
@@ -269,7 +277,7 @@ useEffect(() => {
               </span>
             </div>
 
-            <p className="text-xs opacity-80 mt-2 line-clamp-4">
+            <p className="text-xs opacity-20 mt-2 line-clamp-4">
               {cve?.summary || 'No description'}
             </p>
           </div>
