@@ -153,19 +153,19 @@ useEffect(() => {
 
   
   // fake SIEM data
-  const siemData = {
-    alerts: [
-      { id: 1, level: 'HIGH', msg: 'Multiple failed SSH logins detected', ip: '185.22.91.44' },
-      { id: 2, level: 'MED', msg: 'Suspicious PowerShell execution', ip: '10.0.0.12' },
-      { id: 3, level: 'LOW', msg: 'New device connected to network', ip: '192.168.1.34' },
-    ],
-    logs: [
-      '[AUTH] user admin login success - 10.0.0.5',
-      '[DNS] query suspicious-domain.xyz blocked',
-      '[FIREWALL] inbound scan detected - 185.22.91.44',
-      '[EDR] process injection attempt blocked',
-    ],
-  }
+  // const siemData = {
+  //   alerts: [
+  //     { id: 1, level: 'HIGH', msg: 'Multiple failed SSH logins detected', ip: '185.22.91.44' },
+  //     { id: 2, level: 'MED', msg: 'Suspicious PowerShell execution', ip: '10.0.0.12' },
+  //     { id: 3, level: 'LOW', msg: 'New device connected to network', ip: '192.168.1.34' },
+  //   ],
+  //   logs: [
+  //     '[AUTH] user admin login success - 10.0.0.5',
+  //     '[DNS] query suspicious-domain.xyz blocked',
+  //     '[FIREWALL] inbound scan detected - 185.22.91.44',
+  //     '[EDR] process injection attempt blocked',
+  //   ],
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -306,7 +306,7 @@ useEffect(() => {
           </div>
         )}
 
-        {/* SIEM */}
+        {/* SIEM
         {view === 'siem' && (
           <div className="max-w-5xl mx-auto space-y-6">
 
@@ -335,7 +335,7 @@ useEffect(() => {
             </div>
 
           </div>
-        )}
+        )} */}
 
         {/* THREATS */}
         {activeApp === 'threats' && (

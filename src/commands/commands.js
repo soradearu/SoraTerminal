@@ -10,7 +10,6 @@ writeups
 contact
 socials
 theme
-siem
 clear
 help
 
