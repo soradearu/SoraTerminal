@@ -3,7 +3,8 @@
 
 ### Interactive terminal-style cybersecurity portfolio built with React and TailwindCSS.
 
-<img width="1916" height="862" alt="image" src="https://github.com/user-attachments/assets/a3b0f2b5-7997-4719-bde4-b0575f94aab8" />
+<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/03513d67-07a1-416f-9eea-ac38400f2d7e" />
+
 
 Available commands:
 
