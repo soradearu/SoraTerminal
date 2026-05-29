@@ -45,6 +45,54 @@ const themes = {
     border: 'border-zinc-500/20',
   },
 }
+// Linux style filesystem
+const fileSystem = {
+  home: {
+    sora: {
+
+      'about.txt': `
+Sora
+Ethical Hacker
+Writer
+Researcher
+`,
+
+      'skills.txt': `
+Python
+JavaScript
+Linux
+Networking
+OSINT
+`,
+
+      projects: {
+        'terminal.txt': 'Interactive cyber terminal portfolio',
+        'siem.txt': 'Threat monitoring dashboard',
+      },
+
+      articles: {
+        'phreakers.md': 'From Phreakers to APTs... A History of Cyber Crimes',
+        'webgoat.md': 'Webgoat | Another Walkthrough for Cyber-Buddies',
+        'overthewire.md': 'Overthewire Bandit Challenge Walkthrough',
+      },
+
+      secrets: {
+    'classified.txt': `
+    PROJECT SORA
+    ━━━━━━━━━━━━━━━━━━━
+
+    Status: ACTIVE
+
+    The observer has become aware.
+
+    Do not trust the terminal.
+`,
+},
+    },
+  },
+}   
+
+
 function BinaryRain() {
   const columns = Array.from({ length: 20 })
 
@@ -100,11 +148,28 @@ Type 'help' to begin.
   const [threatFeed, setThreatFeed] = useState([])
 
   const currentTheme = themes[theme]
-
+  const [isRoot, setIsRoot] = useState(false)
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
 
-  // FETCH THREAT FEED
+ // files
+  const [currentPath, setCurrentPath] = useState([
+  'home',
+  'sora',
+])
+
+const getCurrentDirectory = () => {
+
+  let dir = fileSystem
+
+  for (const folder of currentPath) {
+    dir = dir[folder]
+  }
+
+  return dir
+}
+
+  // fetch threat feed
 useEffect(() => {
 
   const fetchThreats = () => {
@@ -166,65 +231,180 @@ useEffect(() => {
   //     '[EDR] process injection attempt blocked',
   //   ],
   // }
+const handleSubmit = (e) => {
+  e.preventDefault()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const trimmed = input.trim().toLowerCase()
 
-    const trimmed = input.trim().toLowerCase()
-    if (!trimmed) return
+  if (!trimmed) return
 
-    // switch views
-    if (trimmed === 'siem') {
-      setView('siem')
-      setActiveApp(null)
-      setInput('')
-      return
-    }
+  let output = 'Command not found. Type help.'
 
-    if (trimmed === 'terminal' || trimmed === 'exit') {
-      setView('terminal')
-      setActiveApp(null)
-      setInput('')
-      return
-    }
+  // CLEAR
+  if (trimmed === 'clear') {
 
-    
+    setHistory([])
+    setInput('')
+    return
+  }
 
-    if (trimmed === 'clear') {
-      setHistory([])
-      setInput('')
-      return
-    }
+  // PWD
+  else if (trimmed === 'pwd') {
 
-    let output = 'Command not found. Type help.'
+    output = '/' + currentPath.join('/')
+  }
 
-    if (commands[trimmed]) {
-      output = commands[trimmed].output
-    } else if (trimmed.startsWith('theme ')) {
-      const selectedTheme = trimmed.split(' ')[1]
+  // LS
+  else if (trimmed === 'ls') {
 
-      if (themes[selectedTheme]) {
-        setTheme(selectedTheme)
-        output = `Theme changed to ${selectedTheme}`
+    const dir = getCurrentDirectory()
+
+    output = Object.keys(dir).join('\n')
+  }
+
+  // CD
+  else if (trimmed.startsWith('cd ')) {
+
+    const target = trimmed.split(' ')[1]
+
+    if (target === '..') {
+
+      if (currentPath.length > 1) {
+
+        setCurrentPath((prev) => prev.slice(0, -1))
+      }
+
+      output = ''
+
+    } else {
+
+      const dir = getCurrentDirectory()
+
+      if (
+        dir[target] &&
+        typeof dir[target] === 'object'
+      ) {
+
+        setCurrentPath((prev) => [
+          ...prev,
+          target,
+        ])
+
+        output = ''
+
       } else {
-        output = 'Theme not found'
+
+        output = 'Directory not found'
       }
     }
-
-    setHistory((prev) => [
-      ...prev,
-      { type: 'command', text: trimmed },
-      { type: 'output', text: output },
-    ])
-
-    setInput('')
   }
+
+  // CAT
+  else if (trimmed.startsWith('cat ')) {
+
+  const fileName = trimmed.split(' ')[1]
+
+  const dir = getCurrentDirectory()
+
+  // Protected file
+  if (
+    fileName === 'classified.txt' &&
+    currentPath.includes('secrets') &&
+    !isRoot
+  ) {
+
+    output = 'Permission denied'
+
+  }
+
+  else if (
+    typeof dir[fileName] === 'string'
+  ) {
+
+    output = dir[fileName]
+
+  } else {
+
+    output = 'File not found'
+  }
+}
+
+  // Theme
+  else if (trimmed.startsWith('theme ')) {
+
+    const selectedTheme =
+      trimmed.split(' ')[1]
+
+    if (themes[selectedTheme]) {
+
+      setTheme(selectedTheme)
+
+      output = `Theme changed to ${selectedTheme}`
+
+    } else {
+
+      output = 'Theme not found'
+    }
+  }
+
+  // // Siem
+  // else if (trimmed === 'siem') {
+
+  //   setActiveApp('siem')
+
+  //   output = 'Opening SIEM dashboard...'
+  // }
+
+  // sudo 
+  else if (
+  trimmed === 'sudo su'
+) {
+
+  setIsRoot(true)
+
+  output = `
+root access granted
+
+WARNING:
+system integrity compromised
+`
+}
+else if (
+  trimmed === 'exit'
+) {
+
+  setIsRoot(false)
+
+  output = 'root session closed'
+}
+  // normal commands
+  else if (commands[trimmed]) {
+
+    output = commands[trimmed].output
+  }
+
+  setHistory((prev) => [
+    ...prev,
+
+    {
+      type: 'command',
+      text: trimmed,
+    },
+
+    {
+      type: 'output',
+      text: output,
+    },
+  ])
+
+  setInput('')
+}
 
   return (
     
     <div className={`bg-black h-screen flex flex-col font-mono relative overflow-hidden ${currentTheme.text}`}>
 
-{/* ANIMATED BACKGROUND */}
+{/* Animated bg */}
   <BinaryRain />
 
   {/* rest of app */}
@@ -238,9 +418,9 @@ useEffect(() => {
         </p>
       </div>
 
-      {/* MAIN */}
+      {/* main */}
       <div className="flex-1 overflow-y-auto p-6">
-{/* LIVE THREAT FEED */}
+{/* Live threat feed CVE */}
 <div className="absolute top-24 right-6 w-96 z-10">
 
   <div className={`border rounded-lg p-4 bg-black/90 backdrop-blur-sm ${currentTheme.border}`}>
@@ -294,7 +474,7 @@ useEffect(() => {
               <div key={i} className="whitespace-pre-wrap mb-4 leading-7">
                 {item.type === 'command' ? (
                   <div>
-                    <span className={currentTheme.secondary}>guest@sora:~$</span>{' '}
+                    <span className={currentTheme.secondary}>guest@sora:/{currentPath.join('/')}$</span>{' '}
                     {item.text}
                   </div>
                 ) : (
@@ -306,7 +486,7 @@ useEffect(() => {
           </div>
         )}
 
-        {/* SIEM
+        {/* siem
         {view === 'siem' && (
           <div className="max-w-5xl mx-auto space-y-6">
 
@@ -337,12 +517,12 @@ useEffect(() => {
           </div>
         )} */}
 
-        {/* THREATS */}
+        {/* Threats */}
         {activeApp === 'threats' && (
   <div className={`border-t p-6 ${currentTheme.border}`}>
     <div className="max-w-6xl mx-auto">
 
-      {/* HEADER */}
+      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Live Threat Feed</h2>
 
@@ -393,13 +573,16 @@ useEffect(() => {
         
       </div>
 
-      {/* INPUT */}
+      {/* Input */}
       <form
         onSubmit={handleSubmit}
         className={`border-t p-4 shrink-0 ${currentTheme.border}`}
       >
         <div className="max-w-5xl mx-auto flex items-center">
-          <span className={currentTheme.secondary}>guest@sora:~$</span>
+          <span className={currentTheme.secondary}><span className={currentTheme.secondary}>
+                {isRoot ? 'root' : 'guest'}@sora:/{currentPath.join('/')}$
+        </span>
+       </span>
 
           <input
             ref={inputRef}
