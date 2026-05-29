@@ -8,26 +8,30 @@
 
 Available commands:
 
-whoami
-skills
-projects
-articles
-writeups
-contact
-socials
-theme
-clear
+whoami\
+skills\
+projects\
+articles\
+writeups\
+contact\
+socials\
+theme\
+clear\
+sudo su\
+cat\
+ls\
 help
 
 There may or may not be some easter eggs within the project, hope you don't find'em...
 
+
 Available themes:
 
-green
-blue
-red
-amber
-pink
+green\
+blue\
+red\
+amber\
+pink\
 white
 
 
