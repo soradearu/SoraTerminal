@@ -6,7 +6,7 @@
 <img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/03513d67-07a1-416f-9eea-ac38400f2d7e" />
 
 
-Available commands:
+## Available commands:
 
 whoami\
 skills\
@@ -25,7 +25,7 @@ help
 There may or may not be some easter eggs within the project, hope you don't find'em...
 
 
-Available themes:
+## Available themes:
 
 green\
 blue\
@@ -37,3 +37,10 @@ white
 
 Usage:
 theme <colour>
+
+## Live threat dashboard 
+Fetch from https://services.nvd.nist.gov API. It refreshes every 30 seconds. \
+\
+<img width="483" height="732" alt="image" src="https://github.com/user-attachments/assets/6e9fb33a-ce23-4c74-a2f2-a53d2a2e9574" />
+
+
