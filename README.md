@@ -8,39 +8,40 @@
 
 ## Available commands:
 
-whoami\
-skills\
-projects\
-articles\
-writeups\
-contact\
-socials\
-theme\
-clear\
-sudo su\
-cat\
-ls\
-help
++ whoami
++ skills
++ projects
++ articles
++ writeups
++ contact
++ socials
++ theme
++ clear
++ sudo su
++ cat
++ ls
++ help
 
 There may or may not be some easter eggs within the project, hope you don't find'em...
 
 
 ## Available themes:
 
-green\
-blue\
-red\
-amber\
-pink\
-white
++ green
++ blue
++ red
++ amber
++ pink
++ white
 
 
 Usage:
 theme <colour>
 
 ## Live threat dashboard 
-Fetch from https://services.nvd.nist.gov API. It refreshes every 30 seconds. \
-\
++ Fetch from https://services.nvd.nist.gov API.  
++ It refreshes every 30 seconds. 
+
 <img width="483" height="732" alt="image" src="https://github.com/user-attachments/assets/6e9fb33a-ce23-4c74-a2f2-a53d2a2e9574" />
 
 
