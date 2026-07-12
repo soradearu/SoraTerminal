@@ -151,7 +151,8 @@ Type 'help' to begin.
   const [isRoot, setIsRoot] = useState(false)
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
-
+  const [threatOpen, setThreatOpen] = useState(false)
+  
  // files
   const [currentPath, setCurrentPath] = useState([
   'home',
@@ -168,7 +169,13 @@ const getCurrentDirectory = () => {
 
   return dir
 }
+useEffect(() => {
 
+  if (window.innerWidth >= 768) {
+    setThreatOpen(true)
+  }
+
+}, [])
   // fetch threat feed
 useEffect(() => {
 
@@ -421,51 +428,108 @@ else if (
       {/* main */}
       <div className="flex-1 overflow-y-auto p-6">
 {/* Live threat feed CVE */}
-<div className="absolute top-24 right-6 w-96 z-10">
 
-  <div className={`border rounded-lg p-4 bg-black/90 backdrop-blur-sm ${currentTheme.border}`}>
 
-    <div className="flex items-center justify-between mb-4">
+
+<div
+  className={`
+    z-10
+
+    md:absolute
+    md:top-24
+    md:right-6
+    md:w-96
+
+    mb-6
+  `}
+>
+
+  <div
+    className={`border rounded-lg bg-black/90 backdrop-blur-sm ${currentTheme.border}`}
+  >
+
+    {/* Header */}
+
+    <button
+      onClick={() => setThreatOpen(!threatOpen)}
+      className="w-full flex justify-between items-center p-4 md:cursor-default"
+    >
+
       <h2 className="font-bold tracking-wider">
         LIVE THREATS
       </h2>
 
-      <span className={`text-xs ${currentTheme.secondary}`}>
+      {/* Hidden on desktop */}
+
+      <span className="md:hidden">
+        {threatOpen ? '▲' : '▼'}
+      </span>
+
+      {/* Desktop badge */}
+
+      <span
+        className={`hidden md:block text-xs ${currentTheme.secondary}`}
+      >
         ACTIVE
       </span>
-    </div>
 
-    {!threatFeed || threatFeed.length === 0 ? (
-      <div className={`text-sm ${currentTheme.muted}`}>
-        Loading threat feed...
-      </div>
-    ) : (
-      <div className="space-y-3 max-h-[500px] overflow-y-auto">
+    </button>
 
-        {threatFeed.map((cve, i) => (
-          <div
-            key={cve.id || i}
-            className={`border rounded p-3 ${currentTheme.border}`}
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-sm">
-                {cve?.id || 'UNKNOWN'}
-              </span>
+    {/* Desktop = always open
+        Mobile = collapsible */}
 
-              <span className="text-red-400 text-xs">
-                HIGH
-              </span>
+    <div
+      className={`
+        ${threatOpen ? 'block' : 'hidden'}
+        md:block
+      `}
+    >
+
+      {!threatFeed.length ? (
+
+        <div className={`p-4 text-sm ${currentTheme.muted}`}>
+          Loading threat feed...
+        </div>
+
+      ) : (
+
+        <div className="space-y-3 max-h-96 overflow-y-auto p-4">
+
+          {threatFeed.map((cve) => (
+
+            <div
+              key={cve.id}
+              className={`border rounded p-3 ${currentTheme.border}`}
+            >
+
+              <div className="flex justify-between">
+
+                <span className="font-bold text-sm">
+                  {cve.id}
+                </span>
+
+                <span className="text-red-400 text-xs">
+                  HIGH
+                </span>
+
+              </div>
+
+              <p className="text-xs opacity-60 mt-2 line-clamp-4">
+                {cve.summary}
+              </p>
+
             </div>
 
-            <p className="text-xs opacity-20 mt-2 line-clamp-4">
-              {cve?.summary || 'No description'}
-            </p>
-          </div>
-        ))}
+          ))}
 
-      </div>
-    )}
+        </div>
+
+      )}
+
+    </div>
+
   </div>
+
 </div>
         {/* TERMINAL */}
         {view === 'terminal' && (
