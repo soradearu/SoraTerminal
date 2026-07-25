@@ -39,8 +39,9 @@ OSINT`},articles:{output:`[1] From Phreakers to APTs 1-2
 - Pokemon Wiki React App
 - Cyber Security Projects in progress...`},contact:{output:`Email: soreadearu7@gmail.com
 GitHub: github.com/soradearu`},socials:{output:`
-Medium → medium.com/@soraderu
-GitHub: github.com/soradearu`},matrix:{output:`Wake up, Sora...
+Medium → medium.com/@soradearu
+GitHub → github.com/soradearu
+Dev.to → dev.to/soradll`},matrix:{output:`Wake up, Sora...
 The matrix has you.`},siem:{output:`Launching SIEM dashboard...`},sudo:{output:`[sudo] password for guest:
 
 Permission denied.`},theme:{output:`Available themes:
