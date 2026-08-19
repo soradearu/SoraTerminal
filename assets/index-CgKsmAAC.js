@@ -26,29 +26,39 @@ There may or may not be some easter eggs within the project, hope you don't find
 Ethical Hacker
 Content Writer`},skills:{output:`
     Security:
-    >Networking (TCP/IP, DNS, HTTP, TLS),
-    >Web Security,
-    >Security+,
-    >Cryptograhy Fundamentals, 
+    >Networking (TCP/IP, DNS, HTTP, TLS)
+    >Web Security 
+    >Linux
+    >Security research / CTI
+    >Security+ - in progress
+    >Cryptograhy 
 
     Offensive:
-    >OWASP TOP 10,
-    >
-    >Malvare Behavioral Analysis (Learning),
-    >Active Directory (Learning),
-    >Kerberos & NTLM (Learning)`},articles:{output:`[1] From Phreakers to APTs 1-2
+    >OWASP TOP 10
+    >Malvare Behavioral Analysis (Learning)
+    >Active Directory (Learning)
+    >Kerberos & NTLM (Learning)
+    >Assembly (Learning)
+
+    Professional:
+    >Technical Communication
+    >Documentation
+    >Continuous learning
+    
+ 
+    `},articles:{output:`[1] From Phreakers to APTs 1-2
 [2] What’s the T(ea) in CTI?
 [3] In progress`},writeups:{output:`[1] OverTheWire Bandit 
 [2] Webgoat Walkthrough
-[3] In progress`},projects:{output:`- Sora Terminal
+[3] Interview Campaign: Attacking your hopes I-II`},projects:{output:`- Sora Terminal
 - Interview Attack
-- Dubugi Terminal
+- Cyber Detective Database
 - Active Directory Lab (Coming Soon) `},contact:{output:`Email: soreadearu7@gmail.com
 GitHub: github.com/soradearu`},socials:{output:`
 Medium → medium.com/@soradearu
 GitHub → github.com/soradearu
 Dev.to → dev.to/soradll`},matrix:{output:`Wake up, Sora...
-The matrix has you.`},siem:{output:`Launching SIEM dashboard...`},sudo:{output:`[sudo] password for guest:
+The matrix found you.`},siem:{output:`Launching SIEM dashboard...`},sudo:{output:`[sudo] password for guest:
 
 Permission denied.`},theme:{output:`Available themes:
 
@@ -117,7 +127,7 @@ JavaScript
 Linux
 Networking
 OSINT
-`,projects:{"terminal.txt":`Interactive cyber terminal portfolio`,"siem.txt":`Threat monitoring dashboard`},articles:{"phreakers.md":`From Phreakers to APTs... A History of Cyber Crimes`,"webgoat.md":`Webgoat | Another Walkthrough for Cyber-Buddies`,"overthewire.md":`Overthewire Bandit Challenge Walkthrough`},secrets:{"classified.txt":`
+`,projects:{"terminal.txt":`Interactive SIEM terminal dashboard`},articles:{"phreakers.md":`From Phreakers to APTs... A History of Cyber Crimes`,"webgoat.md":`Webgoat | Another Walkthrough for Cyber-Buddies`,"overthewire.md":`Overthewire Bandit Challenge Walkthrough`,"interview.md":`Interview Campaign: Attacking your hopes I-II`},secrets:{"classified.txt":`
     PROJECT SORA
     ━━━━━━━━━━━━━━━━━━━
 
