@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import PageTracker from './siem/PageTracker'
+
 import Home from './pages/Home'
 import ArticlePage from './pages/ArticlePage'
 import NotFound from './pages/NotFound'
@@ -10,7 +10,7 @@ import Terminal from './components/Terminal'
 function App() {
   return (
     <>
-      <PageTracker />
+      
 
       <Routes>
 

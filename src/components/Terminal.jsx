@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import commands from '../commands/commands'
-import { logPageView } from '../siem/eventLogger'
+
 import AlertButton from './AlertButton'
 
 const themes = {
@@ -186,7 +186,7 @@ useEffect(() => {
 
 }, [])
 
-// alerts
+/* // alerts
 useEffect(() => {
 
   logPageView(
@@ -195,7 +195,7 @@ useEffect(() => {
 
 }, [])
 
-
+ */
 
   // fetch threat feed
 useEffect(() => {
