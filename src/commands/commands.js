@@ -20,62 +20,83 @@ There may or may not be some easter eggs within the project, hope you don't find
   whoami: {
     output: `Sora
 ━━━━━━━━━━━━━━━━━━━━━
-Ethical Hacker
-Content Writer`,
+Cyber Security Analyst
+Writer
+Researcher`,
   },
 
   skills: {
-    output: `Python
-JavaScript
-Linux
-Web Security
-Networking
-OSINT`,
+    output: `
+    Security:
+    >Networking (TCP/IP, DNS, HTTP, TLS)
+    >Web Security 
+    >Linux
+    >Security research / CTI
+    >Security+ - in progress
+    >Cryptograhy 
+
+    Offensive:
+    >OWASP TOP 10
+    >Malvare Behavioral Analysis (Learning)
+    >Active Directory (Learning)
+    >Kerberos & NTLM (Learning)
+    >Assembly (Learning)
+
+    Professional:
+    >Technical Communication
+    >Documentation
+    >Continuous learning
+    
+ 
+    `
+   
+  
+    
   },
 
   articles: {
     output: `[1] From Phreakers to APTs 1-2
 [2] What’s the T(ea) in CTI?
-[3] In progress`,
+[3] In progress`
   },
 
   writeups: {
     output: `[1] OverTheWire Bandit 
 [2] Webgoat Walkthrough
-[3] In progress`,
+[3] Interview Campaign: Attacking your hopes I-II`
   },
 
   projects: {
     output: `- Sora Terminal
-- Jigsaw Blog Next/react
-- Pixelheart Gamer App
-- Pokemon Wiki React App
-- Cyber Security Projects in progress...`,
+- Interview Attack
+- Cyber Detective Database
+- Active Directory Lab (Coming Soon) `
   },
 
   contact: {
     output: `Email: soreadearu7@gmail.com
-GitHub: github.com/soradearu`,
+GitHub: github.com/soradearu`
   },
 
   socials: {
     output: `
-Medium → medium.com/@soraderu
-GitHub: github.com/soradearu`,
+Medium → medium.com/@soradearu
+GitHub → github.com/soradearu
+Dev.to → dev.to/soradll`
   },
 
   matrix: {
     output: `Wake up, Sora...
-The matrix has you.`,
+The matrix found you.`
   },
   siem: {
-  output: 'Launching SIEM dashboard...',
+  output: 'Launching SIEM dashboard...'
 },
 
   sudo: {
     output: `[sudo] password for guest:
 
-Permission denied.`,
+Permission denied.`
   },
   theme: {
   output: `Available themes:
@@ -89,7 +110,7 @@ white
 
 
 Usage:
-theme <colour>`,
+theme <colour>`
 },
 }
 

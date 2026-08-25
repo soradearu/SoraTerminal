@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import commands from '../commands/commands'
+import { logPageView } from '../siem/eventLogger'
+import AlertButton from './AlertButton'
 
 const themes = {
   green: {
@@ -8,6 +10,7 @@ const themes = {
     secondary: 'text-green-600',
     muted: 'text-green-700',
     border: 'border-green-500/20',
+    scrollbar: 'scrollbar-green-500/20'
   },
   blue: {
     text: 'text-cyan-400',
@@ -15,6 +18,7 @@ const themes = {
     secondary: 'text-cyan-600',
     muted: 'text-cyan-700',
     border: 'border-cyan-500/20',
+     scrollbar:'scrollbar-cyan-500/20'
   },
   red: {
     text: 'text-red-400',
@@ -22,6 +26,7 @@ const themes = {
     secondary: 'text-red-600',
     muted: 'text-red-700',
     border: 'border-red-500/20',
+     scrollbar:'scrollbar-red-500/20'
   },
   amber: {
     text: 'text-amber-400',
@@ -29,6 +34,7 @@ const themes = {
     secondary: 'text-amber-600',
     muted: 'text-amber-700',
     border: 'border-amber-500/20',
+    scrollbar:'scrollbar-amber-500/20'
   },
   pink: {
     text: 'text-pink-400',
@@ -36,6 +42,7 @@ const themes = {
     secondary: 'text-pink-600',
     muted: 'text-pink-700',
     border: 'border-pink-500/20',
+    scrollbar:'scrollbar-pink-500/20'
   },
   white: {
     text: 'text-zinc-200',
@@ -43,6 +50,7 @@ const themes = {
     secondary: 'text-zinc-500',
     muted: 'text-zinc-700',
     border: 'border-zinc-500/20',
+    scrollbar:'scrollbar-zinc-500/20'
   },
 }
 // Linux style filesystem
@@ -52,7 +60,7 @@ const fileSystem = {
 
       'about.txt': `
 Sora
-Ethical Hacker
+Cyber Security Analyst
 Writer
 Researcher
 `,
@@ -66,14 +74,15 @@ OSINT
 `,
 
       projects: {
-        'terminal.txt': 'Interactive cyber terminal portfolio',
-        'siem.txt': 'Threat monitoring dashboard',
+        'terminal.txt': 'Interactive SIEM terminal dashboard',
+        
       },
 
       articles: {
         'phreakers.md': 'From Phreakers to APTs... A History of Cyber Crimes',
         'webgoat.md': 'Webgoat | Another Walkthrough for Cyber-Buddies',
         'overthewire.md': 'Overthewire Bandit Challenge Walkthrough',
+        'interview.md': 'Interview Campaign: Attacking your hopes I-II'
       },
 
       secrets: {
@@ -176,6 +185,18 @@ useEffect(() => {
   }
 
 }, [])
+
+// alerts
+useEffect(() => {
+
+  logPageView(
+    window.location.pathname
+  )
+
+}, [])
+
+
+
   // fetch threat feed
 useEffect(() => {
 
@@ -427,9 +448,13 @@ else if (
 
       {/* main */}
       <div className="flex-1 overflow-y-auto p-6">
+        
+         <AlertButton currentTheme={currentTheme} /> 
+
+
+
+
 {/* Live threat feed CVE */}
-
-
 
 <div
   className={`

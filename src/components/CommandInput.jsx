@@ -34,6 +34,19 @@ export default function CommandInput({ commands, onCommand }) {
       setInput(suggestion)
     }
   }
+const addLocalFile = () => {
+  return new Promise((resolve) => {
+    const input = document.createElement('input')
+
+    input.type = 'file'
+
+    input.onchange = () => {
+      resolve(input.files?.[0] || null)
+    }
+
+    input.click()
+  })
+}
 
   return (
     <form onSubmit={handleSubmit} className="relative flex items-center">
