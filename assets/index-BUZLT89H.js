@@ -72,12 +72,12 @@ white
 
 
 Usage:
-theme <colour>`}},$n=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=$n()}))(),er=`http://127.0.0.1:8000`;function tr({currentTheme:e}){let[t,n]=(0,x.useState)(!1),[r,i]=(0,x.useState)([]);return(0,x.useEffect)(()=>{let e=async()=>{try{let e=await fetch(`${er}/events`);if(!e.ok)return;i(await e.json())}catch(e){console.error(`Failed to fetch alerts:`,e)}};e();let t=setInterval(e,5e3);return()=>clearInterval(t)},[]),(0,j.jsxs)(j.Fragment,{children:[(0,j.jsx)(`button`,{onClick:()=>n(!t),className:`
-             border
+theme <colour>`}},$n=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),j=o(((e,t)=>{t.exports=$n()}))();function er({currentTheme:e}){let[t,n]=(0,x.useState)(!1),r=[];return(0,j.jsxs)(j.Fragment,{children:[(0,j.jsx)(`button`,{onClick:()=>n(!t),className:`
+          border
           border-green-500/20
-              ${e.border}
-    bg-black/90
-    ${e.text}
+          ${e.border}
+          bg-black/90
+          ${e.text}
           backdrop-blur-sm
           rounded-lg
           px-4
@@ -86,38 +86,33 @@ theme <colour>`}},$n=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Sym
           font-mono
           text-green-400
           hover:bg-green-500/10
-          transition`,children:(0,j.jsxs)(`span`,{className:`flex items-center gap-2 ${e.muted}`,children:[`ALERTS`,(0,j.jsxs)(`span`,{className:e.text,children:[`[`,r.length,`]`]})]})}),t&&(0,j.jsxs)(`div`,{className:`fixed
+          transition
+        `,children:(0,j.jsxs)(`span`,{className:`flex items-center gap-2 ${e.muted}`,children:[`ALERTS`,(0,j.jsxs)(`span`,{className:e.text,children:[`[`,r.length,`]`]})]})}),t&&(0,j.jsxs)(`div`,{className:`
+            fixed
             z-50
-
             top-24
-          
             ${e.border}
             w-80
             max-w-[calc(100vw-2rem)]
-
             border
             border-green-500/20
             rounded-lg
-
             bg-black/95
             backdrop-blur-md
-
-            shadow-2xl`,children:[(0,j.jsxs)(`div`,{className:` flex
-              items-center
-              justify-between
-
-              px-4
-              py-3
-
-              border-b
-             `,children:[(0,j.jsx)(`div`,{className:`flex items-center gap-2`,children:(0,j.jsx)(`span`,{className:`font-bold tracking-wider ${e.muted}`,children:`ALERTS`})}),(0,j.jsx)(`button`,{onClick:()=>n(!1),className:`${e.secondary}
-              hover:${e.text}`,children:`×`})]}),r.length?(0,j.jsx)(`div`,{className:`max-h-96 overflow-y-auto`,children:r.map((t,n)=>(0,j.jsxs)(`div`,{className:`\r
+            shadow-2xl
+          `,children:[(0,j.jsxs)(`div`,{className:`\r
+              flex\r
+              items-center\r
+              justify-between\r
+              px-4\r
+              py-3\r
+              border-b\r
+            `,children:[(0,j.jsx)(`div`,{className:`flex items-center gap-2`,children:(0,j.jsx)(`span`,{className:`font-bold tracking-wider ${e.muted}`,children:`ALERTS`})}),(0,j.jsx)(`button`,{onClick:()=>n(!1),className:`${e.secondary} hover:${e.text}`,children:`×`})]}),r.length?(0,j.jsx)(`div`,{className:`max-h-96 overflow-y-auto`,children:r.map((t,n)=>(0,j.jsxs)(`div`,{className:`\r
                     px-4\r
                     py-3\r
-\r
                     border-b\r
                     border-green-500/10\r
-                  `,children:[(0,j.jsxs)(`div`,{className:`flex justify-between`,children:[(0,j.jsxs)(`span`,{className:`text-sm font-bold ${e.text}`,children:[`Classification: `,t.classification??`UNKNOWN`]}),(0,j.jsx)(`span`,{className:`${e.text} text-xs`,children:t.score??0})]}),(0,j.jsxs)(`div`,{className:`${e.text} text-xs mt-1`,children:[`Path:  `,t.path]})]},t.id??n))}):(0,j.jsx)(`div`,{className:`p-4 text-sm ${e.text}`,children:`NO EVENTS RECORDED.`})]})]})}var nr={green:{text:`text-green-400`,output:`text-green-300`,secondary:`text-green-600`,muted:`text-green-700`,border:`border-green-500/20`,scrollbar:`scrollbar-green-500/20`},blue:{text:`text-cyan-400`,output:`text-cyan-300`,secondary:`text-cyan-600`,muted:`text-cyan-700`,border:`border-cyan-500/20`,scrollbar:`scrollbar-cyan-500/20`},red:{text:`text-red-400`,output:`text-red-300`,secondary:`text-red-600`,muted:`text-red-700`,border:`border-red-500/20`,scrollbar:`scrollbar-red-500/20`},amber:{text:`text-amber-400`,output:`text-amber-300`,secondary:`text-amber-600`,muted:`text-amber-700`,border:`border-amber-500/20`,scrollbar:`scrollbar-amber-500/20`},pink:{text:`text-pink-400`,output:`text-pink-300`,secondary:`text-pink-600`,muted:`text-pink-700`,border:`border-pink-500/20`,scrollbar:`scrollbar-pink-500/20`},white:{text:`text-zinc-200`,output:`text-zinc-300`,secondary:`text-zinc-500`,muted:`text-zinc-700`,border:`border-zinc-500/20`,scrollbar:`scrollbar-zinc-500/20`}},rr={home:{sora:{"about.txt":`
+                  `,children:[(0,j.jsxs)(`div`,{className:`flex justify-between`,children:[(0,j.jsxs)(`span`,{className:`text-sm font-bold ${e.text}`,children:[`Classification: `,t.classification??`UNKNOWN`]}),(0,j.jsx)(`span`,{className:`${e.text} text-xs`,children:t.score??0})]}),(0,j.jsxs)(`div`,{className:`${e.text} text-xs mt-1`,children:[`Path: `,t.path]})]},t.id??n))}):(0,j.jsx)(`div`,{className:`p-4 text-sm ${e.text}`,children:`NO EVENTS RECORDED.`})]})]})}var tr={green:{text:`text-green-400`,output:`text-green-300`,secondary:`text-green-600`,muted:`text-green-700`,border:`border-green-500/20`,scrollbar:`scrollbar-green-500/20`},blue:{text:`text-cyan-400`,output:`text-cyan-300`,secondary:`text-cyan-600`,muted:`text-cyan-700`,border:`border-cyan-500/20`,scrollbar:`scrollbar-cyan-500/20`},red:{text:`text-red-400`,output:`text-red-300`,secondary:`text-red-600`,muted:`text-red-700`,border:`border-red-500/20`,scrollbar:`scrollbar-red-500/20`},amber:{text:`text-amber-400`,output:`text-amber-300`,secondary:`text-amber-600`,muted:`text-amber-700`,border:`border-amber-500/20`,scrollbar:`scrollbar-amber-500/20`},pink:{text:`text-pink-400`,output:`text-pink-300`,secondary:`text-pink-600`,muted:`text-pink-700`,border:`border-pink-500/20`,scrollbar:`scrollbar-pink-500/20`},white:{text:`text-zinc-200`,output:`text-zinc-300`,secondary:`text-zinc-500`,muted:`text-zinc-700`,border:`border-zinc-500/20`,scrollbar:`scrollbar-zinc-500/20`}},nr={home:{sora:{"about.txt":`
 Sora
 Cyber Security Analyst
 Writer
@@ -137,7 +132,7 @@ OSINT
     The observer has become aware.
 
     Do not trust the terminal.
-`}}}};function ir(){return(0,j.jsx)(`div`,{className:`absolute inset-0 overflow-hidden pointer-events-none opacity-20`,children:Array.from({length:20}).map((e,t)=>(0,j.jsx)(`div`,{className:`absolute top-0 text-cyan-300 drop-shadow-[0_0_8px_#22d3ee] text-3xl font-bold animate-rain`,style:{left:`${t*5}%`,animationDuration:`${8+Math.random()*10}s`,animationDelay:`${Math.random()*5}s`,filter:`blur(0.5px)`},children:Array.from({length:30}).map((e,t)=>(0,j.jsx)(`div`,{className:`leading-[1.2]`,children:Math.random()>.5?`1`:`0`},t))},t))})}function ar(){let[e,t]=(0,x.useState)([{type:`output`,text:`
+`}}}};function rr(){return(0,j.jsx)(`div`,{className:`absolute inset-0 overflow-hidden pointer-events-none opacity-20`,children:Array.from({length:20}).map((e,t)=>(0,j.jsx)(`div`,{className:`absolute top-0 text-cyan-300 drop-shadow-[0_0_8px_#22d3ee] text-3xl font-bold animate-rain`,style:{left:`${t*5}%`,animationDuration:`${8+Math.random()*10}s`,animationDelay:`${Math.random()*5}s`,filter:`blur(0.5px)`},children:Array.from({length:30}).map((e,t)=>(0,j.jsx)(`div`,{className:`leading-[1.2]`,children:Math.random()>.5?`1`:`0`},t))},t))})}function ir(){let[e,t]=(0,x.useState)([{type:`output`,text:`
 ███████╗ ██████╗ ██████╗  █████╗
 ██╔════╝██╔═══██╗██╔══██╗██╔══██╗
 ███████╗██║   ██║██████╔╝███████║
@@ -147,7 +142,7 @@ OSINT
 
 SoraOS initialized.
 Type 'help' to begin.
-      `}]),[n,r]=(0,x.useState)(``),[i,a]=(0,x.useState)(`green`),[o,s]=(0,x.useState)(`terminal`),[c,l]=(0,x.useState)(null),[u,d]=(0,x.useState)([]),f=nr[i],[p,m]=(0,x.useState)(!1),h=(0,x.useRef)(null),g=(0,x.useRef)(null),[_,v]=(0,x.useState)(!1),[y,b]=(0,x.useState)([`home`,`sora`]),ee=()=>{let e=rr;for(let t of y)e=e[t];return e};return(0,x.useEffect)(()=>{window.innerWidth>=768&&v(!0)},[]),(0,x.useEffect)(()=>{Xn(window.location.pathname)},[]),(0,x.useEffect)(()=>{let e=()=>{let e=Math.floor(Math.random()*2e3);fetch(`https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=5&startIndex=${e}`).then(e=>(console.log(`STATUS:`,e.status),e.json())).then(e=>{let t=(e?.vulnerabilities??[]).map(e=>({id:e?.cve?.id??`NO-ID`,summary:e?.cve?.descriptions?.find(e=>e.lang===`en`)?.value??`NO-SUMMARY`}));console.log(`NEW RANDOM FEED:`,t),d(t)}).catch(e=>{console.log(`FETCH FAILED:`,e)})};e();let t=setInterval(e,3e4);return()=>clearInterval(t)},[]),(0,j.jsxs)(`div`,{className:`bg-black h-screen flex flex-col font-mono relative overflow-hidden ${f.text}`,children:[(0,j.jsx)(ir,{}),(0,j.jsxs)(`div`,{className:`border-b px-6 py-4 shrink-0 ${f.border}`,children:[(0,j.jsx)(`h1`,{className:`text-xl tracking-widest font-bold`,children:`SORA TERMINAL`}),(0,j.jsx)(`p`,{className:`text-xs mt-1 ${f.muted}`,children:`interactive cybersecurity portfolio`})]}),(0,j.jsxs)(`div`,{className:`flex-1 overflow-y-auto p-6`,children:[(0,j.jsx)(tr,{currentTheme:f}),(0,j.jsx)(`div`,{className:`
+      `}]),[n,r]=(0,x.useState)(``),[i,a]=(0,x.useState)(`green`),[o,s]=(0,x.useState)(`terminal`),[c,l]=(0,x.useState)(null),[u,d]=(0,x.useState)([]),f=tr[i],[p,m]=(0,x.useState)(!1),h=(0,x.useRef)(null),g=(0,x.useRef)(null),[_,v]=(0,x.useState)(!1),[y,b]=(0,x.useState)([`home`,`sora`]),ee=()=>{let e=nr;for(let t of y)e=e[t];return e};return(0,x.useEffect)(()=>{window.innerWidth>=768&&v(!0)},[]),(0,x.useEffect)(()=>{Xn(window.location.pathname)},[]),(0,x.useEffect)(()=>{let e=()=>{let e=Math.floor(Math.random()*2e3);fetch(`https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=5&startIndex=${e}`).then(e=>(console.log(`STATUS:`,e.status),e.json())).then(e=>{let t=(e?.vulnerabilities??[]).map(e=>({id:e?.cve?.id??`NO-ID`,summary:e?.cve?.descriptions?.find(e=>e.lang===`en`)?.value??`NO-SUMMARY`}));console.log(`NEW RANDOM FEED:`,t),d(t)}).catch(e=>{console.log(`FETCH FAILED:`,e)})};e();let t=setInterval(e,3e4);return()=>clearInterval(t)},[]),(0,j.jsxs)(`div`,{className:`bg-black h-screen flex flex-col font-mono relative overflow-hidden ${f.text}`,children:[(0,j.jsx)(rr,{}),(0,j.jsxs)(`div`,{className:`border-b px-6 py-4 shrink-0 ${f.border}`,children:[(0,j.jsx)(`h1`,{className:`text-xl tracking-widest font-bold`,children:`SORA TERMINAL`}),(0,j.jsx)(`p`,{className:`text-xs mt-1 ${f.muted}`,children:`interactive cybersecurity portfolio`})]}),(0,j.jsxs)(`div`,{className:`flex-1 overflow-y-auto p-6`,children:[(0,j.jsx)(er,{currentTheme:f}),(0,j.jsx)(`div`,{className:`
     z-10
 
     md:absolute
@@ -160,9 +155,9 @@ Type 'help' to begin.
         ${_?`block`:`hidden`}
         md:block
       `,children:u.length?(0,j.jsx)(`div`,{className:`space-y-3 max-h-96 overflow-y-auto p-4`,children:u.map(e=>(0,j.jsxs)(`div`,{className:`border rounded p-3 ${f.border}`,children:[(0,j.jsxs)(`div`,{className:`flex justify-between`,children:[(0,j.jsx)(`span`,{className:`font-bold text-sm`,children:e.id}),(0,j.jsx)(`span`,{className:`text-red-400 text-xs`,children:`HIGH`})]}),(0,j.jsx)(`p`,{className:`text-xs opacity-60 mt-2 line-clamp-4`,children:e.summary})]},e.id))}):(0,j.jsx)(`div`,{className:`p-4 text-sm ${f.muted}`,children:`Loading threat feed...`})})]})}),o===`terminal`&&(0,j.jsxs)(`div`,{className:`max-w-5xl mx-auto`,children:[e.map((e,t)=>(0,j.jsx)(`div`,{className:`whitespace-pre-wrap mb-4 leading-7`,children:e.type===`command`?(0,j.jsxs)(`div`,{children:[(0,j.jsxs)(`span`,{className:f.secondary,children:[`guest@sora:/`,y.join(`/`),`$`]}),` `,e.text]}):(0,j.jsx)(`div`,{className:f.output,children:e.text})},t)),(0,j.jsx)(`div`,{ref:h})]}),c===`threats`&&(0,j.jsx)(`div`,{className:`border-t p-6 ${f.border}`,children:(0,j.jsxs)(`div`,{className:`max-w-6xl mx-auto`,children:[(0,j.jsxs)(`div`,{className:`flex justify-between items-center mb-6`,children:[(0,j.jsx)(`h2`,{className:`text-2xl font-bold`,children:`Live Threat Feed`}),(0,j.jsx)(`button`,{onClick:()=>l(null),className:f.secondary,children:`close`})]}),!u||u.length===0?(0,j.jsx)(`div`,{className:`${f.muted} text-sm`,children:`No threat data loaded. (Either API failed or is still loading)`}):(0,j.jsx)(`div`,{className:`space-y-4`,children:u.map((e,t)=>(0,j.jsxs)(`div`,{className:`border p-4 rounded ${f.border}`,children:[(0,j.jsxs)(`div`,{className:`flex items-center justify-between`,children:[(0,j.jsx)(`h3`,{className:`font-bold`,children:e?.id||`UNKNOWN ID`}),(0,j.jsxs)(`span`,{className:`text-xs ${f.secondary}`,children:[`#`,t+1]})]}),(0,j.jsx)(`p`,{className:`text-sm opacity-80 mt-2`,children:e?.summary||`No description available`})]},e.id||t))})]})})]}),(0,j.jsx)(`form`,{onSubmit:e=>{e.preventDefault();let i=n.trim().toLowerCase();if(!i)return;let o=`Command not found. Type help.`;if(i===`clear`){t([]),r(``);return}else if(i===`pwd`)o=`/`+y.join(`/`);else if(i===`ls`){let e=ee();o=Object.keys(e).join(`
-`)}else if(i.startsWith(`cd `)){let e=i.split(` `)[1];if(e===`..`)y.length>1&&b(e=>e.slice(0,-1)),o=``;else{let t=ee();t[e]&&typeof t[e]==`object`?(b(t=>[...t,e]),o=``):o=`Directory not found`}}else if(i.startsWith(`cat `)){let e=i.split(` `)[1],t=ee();o=e===`classified.txt`&&y.includes(`secrets`)&&!p?`Permission denied`:typeof t[e]==`string`?t[e]:`File not found`}else if(i.startsWith(`theme `)){let e=i.split(` `)[1];nr[e]?(a(e),o=`Theme changed to ${e}`):o=`Theme not found`}else i===`sudo su`?(m(!0),o=`
+`)}else if(i.startsWith(`cd `)){let e=i.split(` `)[1];if(e===`..`)y.length>1&&b(e=>e.slice(0,-1)),o=``;else{let t=ee();t[e]&&typeof t[e]==`object`?(b(t=>[...t,e]),o=``):o=`Directory not found`}}else if(i.startsWith(`cat `)){let e=i.split(` `)[1],t=ee();o=e===`classified.txt`&&y.includes(`secrets`)&&!p?`Permission denied`:typeof t[e]==`string`?t[e]:`File not found`}else if(i.startsWith(`theme `)){let e=i.split(` `)[1];tr[e]?(a(e),o=`Theme changed to ${e}`):o=`Theme not found`}else i===`sudo su`?(m(!0),o=`
 root access granted
 
 WARNING:
 system integrity compromised
-`):i===`exit`?(m(!1),o=`root session closed`):Qn[i]&&(o=Qn[i].output);t(e=>[...e,{type:`command`,text:i},{type:`output`,text:o}]),r(``)},className:`border-t p-4 shrink-0 ${f.border}`,children:(0,j.jsxs)(`div`,{className:`max-w-5xl mx-auto flex items-center`,children:[(0,j.jsx)(`span`,{className:f.secondary,children:(0,j.jsxs)(`span`,{className:f.secondary,children:[p?`root`:`guest`,`@sora:/`,y.join(`/`),`$`]})}),(0,j.jsx)(`input`,{ref:g,value:n,onChange:e=>r(e.target.value),className:`bg-transparent outline-none ml-3 flex-1 ${f.output}`,spellCheck:!1})]})})]})}function or(){let{slug:e}=mt();return(0,j.jsx)(`div`,{className:`bg-black min-h-screen text-green-400 p-10 font-mono`,children:(0,j.jsxs)(`div`,{className:`max-w-4xl mx-auto`,children:[(0,j.jsx)(`h1`,{className:`text-4xl font-bold mb-8`,children:e}),(0,j.jsx)(`div`,{className:`text-zinc-300 leading-8`,children:`Markdown article content goes here.`})]})})}function sr(){return(0,j.jsxs)(j.Fragment,{children:[(0,j.jsx)(Zn,{}),(0,j.jsxs)(zt,{children:[(0,j.jsx)(Lt,{path:`/`,element:(0,j.jsx)(ar,{})}),(0,j.jsx)(Lt,{path:`/article/:slug`,element:(0,j.jsx)(or,{})})]})]})}Jn.createRoot(document.getElementById(`root`)).render((0,j.jsx)(x.StrictMode,{children:(0,j.jsx)(Dn,{children:(0,j.jsx)(sr,{})})}));
+`):i===`exit`?(m(!1),o=`root session closed`):Qn[i]&&(o=Qn[i].output);t(e=>[...e,{type:`command`,text:i},{type:`output`,text:o}]),r(``)},className:`border-t p-4 shrink-0 ${f.border}`,children:(0,j.jsxs)(`div`,{className:`max-w-5xl mx-auto flex items-center`,children:[(0,j.jsx)(`span`,{className:f.secondary,children:(0,j.jsxs)(`span`,{className:f.secondary,children:[p?`root`:`guest`,`@sora:/`,y.join(`/`),`$`]})}),(0,j.jsx)(`input`,{ref:g,value:n,onChange:e=>r(e.target.value),className:`bg-transparent outline-none ml-3 flex-1 ${f.output}`,spellCheck:!1})]})})]})}function ar(){let{slug:e}=mt();return(0,j.jsx)(`div`,{className:`bg-black min-h-screen text-green-400 p-10 font-mono`,children:(0,j.jsxs)(`div`,{className:`max-w-4xl mx-auto`,children:[(0,j.jsx)(`h1`,{className:`text-4xl font-bold mb-8`,children:e}),(0,j.jsx)(`div`,{className:`text-zinc-300 leading-8`,children:`Markdown article content goes here.`})]})})}function or(){return(0,j.jsxs)(j.Fragment,{children:[(0,j.jsx)(Zn,{}),(0,j.jsxs)(zt,{children:[(0,j.jsx)(Lt,{path:`/`,element:(0,j.jsx)(ir,{})}),(0,j.jsx)(Lt,{path:`/article/:slug`,element:(0,j.jsx)(ar,{})})]})]})}Jn.createRoot(document.getElementById(`root`)).render((0,j.jsx)(x.StrictMode,{children:(0,j.jsx)(Dn,{children:(0,j.jsx)(or,{})})}));
